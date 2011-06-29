@@ -7,6 +7,6 @@
     <author>www.smaizys.com</author>
     <tab>administration</tab>
     <confirmUninstall>Are you sure you want me to keep away from displaying content?</confirmUninstall>
-    <is_configurable>0</is_configurable>
+    <is_configurable>1</is_configurable>
     <need_instance>0</need_instance>
 </module>

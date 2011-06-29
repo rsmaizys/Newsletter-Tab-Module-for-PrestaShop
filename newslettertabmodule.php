@@ -91,7 +91,7 @@ class newslettertabmodule extends Module
     private function _displayForm()
     {
         global $cookie, $smarty;
-        $tabsInfo = Tab::getTabs($cookie->id_language, 0);
+        $tabsInfo = Tab::getTabs($cookie->id_lang, 0);
         $smarty->assign(array('tabsInfo'=>$tabsInfo, 
                               'selectedTab'=>Configuration::get('NSletter_id_parent_tab')));
         return $this->display(__FILE__, 'adminform.tpl');

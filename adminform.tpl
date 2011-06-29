@@ -6,6 +6,7 @@
         {l s='Parent tab for newsletter tab' mod='newslettertabmodule'}
     </legend>
     <label>{l s='Choose the parent Tab:' mod='newslettertabmodule'}</label>
+
     <div class="margin-form">
         <select name="id_parent_tab">
             <option value="0" selected="selected">{l s='-- Choose --' mod='newslettertabmodule'}</option>
