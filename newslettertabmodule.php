@@ -16,12 +16,6 @@ if (!defined('_CAN_LOAD_FILES_'))
  
 class newslettertabmodule extends Module
 {
-
-    const BACKOFFICE_PAGE_ERROR_CONTAINER_PREFIX = '<div class="alert error">';
-    const BACKOFFICE_PAGE_ERROR_CONTAINER_SUFFIX = '</div>';
-    const BACKOFFICE_PAGE_SUCCESS_CONTAINER_PREFIX = '<div class="conf confirm">';
-    const BACKOFFICE_PAGE_SUCCESS_CONTAINER_SUFFIX = '</div>';
-     
     
     public function __construct ()
     {
@@ -34,41 +28,9 @@ class newslettertabmodule extends Module
  
         $this->confirmUninstall = $this->l('Are you sure you want me to keep away from displaying content?');
         $this->displayName = $this->l('Newsletter tab module');
-        $this->description = $this->l('Adss newsletter functionality to the system');
-
-        
-        // If this module requires configuration, check whether configured and show warning, if not configured        
-        if (self::isInstalled($this->name) && $this->isConfigurable())
-        {
-            $warning = $this->l('Module not configured correctly');
-            if (!$this->_isConfigured($warning)
-                && !empty($warning))
-            {
-                $this->warning .= $warning;
-            }
-        }        
+        $this->description = $this->l('Adss newsletter functionality to the system');         
     }
 
-    public function isConfigurable ()
-    {
-        return (int) method_exists($this, 'getContent') ? true : false;
-    }
- 
-    protected function _isConfigured(&$warning)
-    {
-        // Check the configuration data for this module and return false
-        // if the configuration is not correct or cannot be used to render
-        // this module. While returning false, set the error message to
-        // the $warning parameter
-        $idParentTab = Configuration::get ('NSletter_id_parent_tab');
-        if(empty($idParentTab) || !Validate::isInt($idParentTab))
-        {
-            $warning = $this->l ('No valid parent tab for newsletter module.');
-            return false;
-        }
-        return true;
-    }
- 
     public function getContent ()
     {
         if(Tools::isSubmit('options_submit'))
